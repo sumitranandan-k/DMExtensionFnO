@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>HSOTableBrowserHelper</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+using Microsoft.Dynamics.ApplicationPlatform.Environment;
+using Microsoft.Dynamics.AX.Framework.Utilities;
+
+final class HSOTableBrowserHelper
+{
+        
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>HSOTableBrowser_OnClicked</Name>
+				<Source><![CDATA[
+    [FormControlEventHandler(formControlStr(DMFTargetXML, HSOTableBrowser), FormControlEventType::Clicked)]
+    public static void HSOTableBrowser_OnClicked(FormControl sender, FormControlEventArgs e)
+    {
+        DMFTargetXML targetXML = sender.formRun().dataSource(formDataSourceStr(DMFTargetXML,DMFTargetXML)).cursor();
+
+        var env = EnvironmentFactory::GetApplicationEnvironment();
+
+        UrlHelper.UrlGenerator generator = new UrlHelper.UrlGenerator();
+        System.Uri currentHost = new System.Uri(UrlUtility::getUrl());
+ 
+        URL navURL = currentHost.GetLeftPart(System.UriPartial::Authority);
+        navURL += 'mi=SysTableBrowser&TableName=';
+        navURL += strFmt('%1&cmp=%2&lng=en-US', targetXML.HSOLogicalName, curExt());
+        
+        Browser browser = new Browser();
+        browser.navigate(navURL, true, false);        
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>HSOShowData_OnClicked</Name>
+				<Source><![CDATA[
+    [FormControlEventHandler(formControlStr(DMFEntity, HSOShowData), FormControlEventType::Clicked)]
+    public static void HSOShowData_OnClicked(FormControl sender, FormControlEventArgs e)
+    {
+        DMFEntity entity = sender.formRun().dataSource(formDataSourceStr(DMFEntity,DMFEntity)).cursor();
+
+        var env = EnvironmentFactory::GetApplicationEnvironment();
+
+        UrlHelper.UrlGenerator generator = new UrlHelper.UrlGenerator();
+        System.Uri currentHost = new System.Uri(UrlUtility::getUrl());
+ 
+        URL navURL = currentHost.GetLeftPart(System.UriPartial::Authority);
+
+        navURL += strFmt('/data/%1', entity.HSOPublicCollectionName, curExt());
+        
+        Browser browser = new Browser();
+        browser.navigate(navURL, true, false);
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

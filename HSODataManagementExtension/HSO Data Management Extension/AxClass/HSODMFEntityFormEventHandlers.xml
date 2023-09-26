@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>HSODMFEntityFormEventHandlers</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+internal final class HSODMFEntityFormEventHandlers
+{
+    
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>DMFEntity_OnInitialized</Name>
+				<Source><![CDATA[
+    [FormEventHandler(formStr(DMFEntity), FormEventType::Initialized)]
+    public static void DMFEntity_OnInitialized(xFormRun _sender, FormEventArgs _e)
+    {
+        HSODMFEntityFormEventHandlers::hsoHandleCustomColumnVisibility(_sender);
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>HSOShowExtendedGrid_OnModified</Name>
+				<Source><![CDATA[
+    [FormControlEventHandler(formControlStr(DMFEntity, HSOShowExtendedGrid), FormControlEventType::Modified)]
+    public static void HSOShowExtendedGrid_OnModified(FormControl _sender, FormControlEventArgs _e)
+    {
+        HSODMFEntityFormEventHandlers::hsoHandleCustomColumnVisibility(_sender.formRun());
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>hsoHandleCustomColumnVisibility</Name>
+				<Source><![CDATA[
+    private static void hsoHandleCustomColumnVisibility(FormRun _fr)
+    {
+        FormCheckBoxControl checkBox = _fr.design(0).controlName(formControlStr(DMFEntity, HSOShowExtendedGrid)) as FormCheckBoxControl;
+
+        _fr.design(0).controlName(formControlStr(DMFEntity, HSO)).visible(checkBox.checked());
+        _fr.doResearch();
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

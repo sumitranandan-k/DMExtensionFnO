@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxTableExtension xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>DMFTargetXML.HSODataManagementExtension</Name>
+	<FieldGroupExtensions />
+	<FieldGroups>
+		<AxTableFieldGroup>
+			<Name>HSO</Name>
+			<Fields>
+				<AxTableFieldGroupField>
+					<DataField>HSOLabel</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOLogicalName</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSODataType</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSODataSourceName</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSODataContraints</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOIsMandatory</DataField>
+				</AxTableFieldGroupField>
+			</Fields>
+		</AxTableFieldGroup>
+	</FieldGroups>
+	<FieldModifications />
+	<Fields>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSOLabel</Name>
+			<ExtendedDataType>Str1260</ExtendedDataType>
+			<Label>Label</Label>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSOLogicalName</Name>
+			<ExtendedDataType>FieldName</ExtendedDataType>
+			<Label>Logical name</Label>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSODataType</Name>
+			<ExtendedDataType>FieldName</ExtendedDataType>
+			<Label>Type</Label>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSODataSourceName</Name>
+			<Label>Datasource</Label>
+			<StringSize>81</StringSize>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSODataContraints</Name>
+			<ExtendedDataType>Str1260</ExtendedDataType>
+			<Label>Contraints</Label>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSOIsMandatory</Name>
+			<Label>Mandatory</Label>
+			<StringSize>3</StringSize>
+		</AxTableField>
+	</Fields>
+	<FullTextIndexes />
+	<Indexes />
+	<Mappings />
+	<PropertyModifications />
+	<RelationExtensions />
+	<RelationModifications />
+	<Relations />
+</AxTableExtension>

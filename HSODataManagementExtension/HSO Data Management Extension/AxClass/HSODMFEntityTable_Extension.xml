@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>HSODMFEntityTable_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[ExtensionOf(tableStr(DMFEntity))]
+internal final class HSODMFEntityTable_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>insert</Name>
+				<Source><![CDATA[
+    public void insert()
+    {
+        this.hsoFillCustomFields();
+
+        next insert();
+    
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>update</Name>
+				<Source><![CDATA[
+    public void update()
+    {
+        this.hsoFillCustomFields();
+
+        next update();
+    
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>hsoFillCustomFields</Name>
+				<Source><![CDATA[
+    private void hsoFillCustomFields()
+    {
+        DictDataEntity dictEntity = new DictDataEntity(tableName2Id(this.Type));
+
+        if (this.EntityType == DMFEntityTypes::Entity)
+        {
+            this.HSOIsEntityPublic          = dictEntity.isPublic();
+            this.HSOIsDataManagementEnabled = dictEntity.dataManagementEnabled();
+            this.HSOIsReadOnly              = dictEntity.isReadOnly();
+            this.HSOPrimaryCompanyContext   = dictEntity.primaryCompanyContext();
+            this.HSOKeys                    = this.hsoGenerateConcatenatedListOfIndexFields(dictEntity);
+            this.HSOPublicCollectionName    = dictEntity.publicCollectionName();
+            this.HSOPublicEntityName        = dictEntity.publicEntityName();
+            this.HSODataSourcesList         = this.hsoGetDatasourcesList(dictEntity);
+            //Add valid timestate from table and entity
+            this.HSOEntityTimeStateEnabled  = dictEntity.isValidTimeStateTable();
+            this.HSOTableTimeStateEnabled   = this.hsoHasValidTimeStateTables(dictEntity);
+        }
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>hsoGetDatasourcesList</Name>
+				<Source><![CDATA[
+    private str hsoGetDatasourcesList(DictDataEntity _dictEntity)
+    {
+        Set set = new Set(Types::String);
+
+        for (int i = 1; i <= _dictEntity.datasourceCnt(); i++)
+        {
+            set.add(tableId2Name(_dictEntity.datasourceTableId(i)));
+        }
+
+        return set.toString();
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>hsoHasValidTimeStateTables</Name>
+				<Source><![CDATA[
+    private boolean hsoHasValidTimeStateTables(DictDataEntity _dictEntity)
+    {
+        boolean retVal;
+       
+        for (int i = 1; i <= _dictEntity.datasourceCnt(); i++)
+        {
+            DictTable dataSource = new DictTable(_dictEntity.datasourceTableId(i));
+            if (dataSource)
+            {
+                if (dataSource.isValidTimeStateTable())
+                {
+                    return true;
+                }
+            }
+        }
+
+        return retVal;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>hsoGenerateConcatenatedListOfIndexFields</Name>
+				<Source><![CDATA[
+    private str hsoGenerateConcatenatedListOfIndexFields(DictDataEntity _dictEntity)
+    {
+        Set set = new Set(Types::String);
+       
+        for (int i = 1; i <= _dictEntity.indexCnt(); i++)
+        {
+            SysDictIndex idx = new SysDictIndex(_dictEntity.id(), _dictEntity.indexCnt2Id(i));
+
+            if(idx)
+            {
+                if (idx.name() == 'EntityKey')
+                {
+                    for (int j = 1; j <= idx.numberOfFields(); j++)
+                    {
+                        set.add(strFmt("%1", fieldId2Name(_dictEntity.id(), idx.field(j))));
+                    }
+                }
+            }
+        }
+
+        return set.toString();
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

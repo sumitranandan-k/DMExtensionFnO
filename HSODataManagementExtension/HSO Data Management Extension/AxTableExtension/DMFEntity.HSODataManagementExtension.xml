@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxTableExtension xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>DMFEntity.HSODataManagementExtension</Name>
+	<FieldGroupExtensions />
+	<FieldGroups>
+		<AxTableFieldGroup>
+			<Name>HSO</Name>
+			<Fields>
+				<AxTableFieldGroupField>
+					<DataField>HSOIsEntityPublic</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOIsReadOnly</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOPrimaryCompanyContext</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOIsDataManagementEnabled</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOTableTimeStateEnabled</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOEntityTimeStateEnabled</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOPublicCollectionName</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOKeys</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>DataSourceTableCount</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HasExtensionDataSources</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSOPublicEntityName</DataField>
+				</AxTableFieldGroupField>
+				<AxTableFieldGroupField>
+					<DataField>HSODataSourcesList</DataField>
+				</AxTableFieldGroupField>
+			</Fields>
+		</AxTableFieldGroup>
+	</FieldGroups>
+	<FieldModifications />
+	<Fields>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldEnum">
+			<Name>HSOIsEntityPublic</Name>
+			<AllowEdit>No</AllowEdit>
+			<AllowEditOnCreate>No</AllowEditOnCreate>
+			<ExtendedDataType>NoYesId</ExtendedDataType>
+			<Label>Is public</Label>
+			<EnumType>NoYes</EnumType>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSOPrimaryCompanyContext</Name>
+			<AllowEdit>No</AllowEdit>
+			<AllowEditOnCreate>No</AllowEditOnCreate>
+			<ExtendedDataType>Str60</ExtendedDataType>
+			<Label>Primary context</Label>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldEnum">
+			<Name>HSOIsDataManagementEnabled</Name>
+			<AllowEdit>No</AllowEdit>
+			<AllowEditOnCreate>No</AllowEditOnCreate>
+			<ExtendedDataType>NoYesId</ExtendedDataType>
+			<Label>Data management enabled</Label>
+			<EnumType>NoYes</EnumType>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldEnum">
+			<Name>HSOIsReadOnly</Name>
+			<AllowEdit>No</AllowEdit>
+			<AllowEditOnCreate>No</AllowEditOnCreate>
+			<ExtendedDataType>NoYesId</ExtendedDataType>
+			<Label>Read only</Label>
+			<EnumType>NoYes</EnumType>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSOKeys</Name>
+			<AllowEdit>No</AllowEdit>
+			<AllowEditOnCreate>No</AllowEditOnCreate>
+			<ExtendedDataType>Str1260</ExtendedDataType>
+			<Label>Keys</Label>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldEnum">
+			<Name>HSOEntityTimeStateEnabled</Name>
+			<AllowEdit>No</AllowEdit>
+			<AllowEditOnCreate>No</AllowEditOnCreate>
+			<ExtendedDataType>NoYesId</ExtendedDataType>
+			<Label>Entity time state enabled</Label>
+			<EnumType>NoYes</EnumType>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldEnum">
+			<Name>HSOTableTimeStateEnabled</Name>
+			<AllowEdit>No</AllowEdit>
+			<AllowEditOnCreate>No</AllowEditOnCreate>
+			<ExtendedDataType>NoYesId</ExtendedDataType>
+			<Label>Has time state enabled tables</Label>
+			<EnumType>NoYes</EnumType>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSOPublicCollectionName</Name>
+			<ExtendedDataType>TableCollectionName</ExtendedDataType>
+			<Label>Public collection name</Label>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSOPublicEntityName</Name>
+			<ExtendedDataType>TableCollectionName</ExtendedDataType>
+			<Label>Public entity name</Label>
+		</AxTableField>
+		<AxTableField xmlns=""
+			i:type="AxTableFieldString">
+			<Name>HSODataSourcesList</Name>
+			<AllowEdit>No</AllowEdit>
+			<AllowEditOnCreate>No</AllowEditOnCreate>
+			<ExtendedDataType>Str1260</ExtendedDataType>
+			<Label>Datasources list</Label>
+		</AxTableField>
+	</Fields>
+	<FullTextIndexes />
+	<Indexes />
+	<Mappings />
+	<PropertyModifications />
+	<RelationExtensions />
+	<RelationModifications />
+	<Relations />
+</AxTableExtension>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>HSODMFEntityRefreshBatchClass_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[ExtensionOf(classStr(DMFEntityRefreshBatch))]
+internal final class HSODMFEntityRefreshBatchClass_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>run</Name>
+				<Source><![CDATA[
+    public void run()
+    {
+        next run();
+
+        DMFEntity entity;
+
+        while select entity 
+            where entity.EntityType == DMFEntityTypes::Entity
+        {
+            ttsbegin;
+            entity.selectForUpdate(true);
+            entity.update(); //base class does bulk insert, dummy update to populate custom fields
+            ttscommit;
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>HSODMFTargetXMLTable_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[ExtensionOf(tableStr(DMFTargetXML))]
+public final class HSODMFTargetXMLTable_Extension
+{
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>hsoGetEDTLabelId</Name>
+				<Source><![CDATA[
+    public LabelId hsoGetEDTLabelId(ExtendedTypeId _typeId)
+    {
+        DictType type = new DictType(_typeId);
+
+        if(type == null)
+        {
+            return "";
+        }
+
+        if (type.labelDefined())
+        {
+            return type.labelDefined();
+        }
+        else if(type.extend())
+        {
+            return this.hsoGetEDTLabelId(type.extend());
+        }
+        else
+        {
+            return "";
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

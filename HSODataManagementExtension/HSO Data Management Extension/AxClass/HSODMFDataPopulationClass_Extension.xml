@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxClass xmlns:i="http://www.w3.org/2001/XMLSchema-instance">
+	<Name>HSODMFDataPopulationClass_Extension</Name>
+	<SourceCode>
+		<Declaration><![CDATA[
+[ExtensionOf(classStr(DMFDataPopulation))]
+internal final class HSODMFDataPopulationClass_Extension
+{
+
+}
+]]></Declaration>
+		<Methods>
+			<Method>
+				<Name>createDefaultMapping</Name>
+				<Source><![CDATA[
+    public static server void createDefaultMapping()
+    {
+        ttsbegin;
+        next createDefaultMapping();
+
+        DMFDataPopulation::hsoPopulateCustomFields();
+
+        ttscommit;
+    }
+
+]]></Source>
+			</Method>
+			<Method>
+				<Name>hsoPopulateCustomFields</Name>
+				<Source><![CDATA[
+    public static void hsoPopulateCustomFields()
+    {
+        DMFEntity dmfEntity;
+        DMFTargetXML targetXML;
+        
+        //happens during entity refresh, keep the table locked.
+        while select forupdate targetXML
+            join Type from dmfEntity
+            where dmfEntity.EntityType == DMFEntityTypes::Entity
+                && targetXML.Entity == dmfEntity.EntityName
+        {
+            DictDataEntity dictEntity = new DictDataEntity(tableName2Id(dmfEntity.Type));
+
+            DictDataEntityField entityField = new DictDataEntityField(tableName2Id(targetXML.TargetTable),
+                            fieldName2Id(tableName2Id(targetXML.TargetTable) ,targetXML.TargetField));
+
+            targetXML.selectForUpdate(true);
+
+            if (entityField)
+            {
+                targetXML.HSOIsMandatory = entityField.mandatory() ? 'Yes' : 'No';
+
+                if(entityField.labelDefined())
+                {
+                    targetXML.HSOLabel =  SysLabel::labelId2String2(entityField.labelDefined(), 'en-us');
+                }
+                else
+                {
+                    if(entityField.baseType() != Types::Enum)
+                    {
+                        targetXML.HSOLabel =   SysLabel::labelId2String2(targetXML.hsoGetEDTLabelId(entityField.typeId()), 'en-us');
+                    }
+                    else
+                    {
+                        DictEnum  dictEnum = new DictEnum(entityField.enumId());
+                        targetXML.HSOLabel =  SysLabel::labelId2String2(dictEnum.labelDefined(), 'en-us');
+                    }
+                }
+                
+                targetXML.HSODataSourceName = entityField.dataSource();
+                targetXML.HSOLogicalName = entityField.dataField();
+                targetXML.HSODataType = enum2Str(entityField.baseType());
+                               
+                switch (entityField.baseType())
+                {
+                    case Types::String:
+                        targetXML.HSODataContraints = int2Str(entityField.stringLen());
+                        break;
+
+                    case Types::Enum:
+                        DictEnum de;
+                        int      i;
+ 
+                        de = new DictEnum(entityField.enumId());
+                        Set enumValues = new Set(Types::String);
+                        for (i=0; i < de.values(); i++)
+                        {
+                            enumValues.add(de.index2Name(i));                            
+                        }
+                        targetXML.HSODataContraints = enumValues.toString();
+                        break;
+                }
+
+            }
+            targetXML.doUpdate();
+        }
+    }
+
+]]></Source>
+			</Method>
+		</Methods>
+	</SourceCode>
+</AxClass>

@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxFormExtension xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="Microsoft.Dynamics.AX.Metadata.V6">
+	<Name>DMFEntity.HSODataManagementExtension</Name>
+	<ControlModifications />
+	<Controls>
+		<AxFormExtensionControl xmlns="">
+			<Name>FormExtensionControllo0gtj5k1</Name>
+			<FormControl xmlns=""
+				i:type="AxFormGroupControl">
+				<Name>HSO</Name>
+				<AutoDeclaration>Yes</AutoDeclaration>
+				<Type>Group</Type>
+				<FormControlExtension
+					i:nil="true" />
+				<Controls>
+					<AxFormControl xmlns=""
+						i:type="AxFormCheckBoxControl">
+						<Name>HSO_HSOIsEntityPublic</Name>
+						<Type>CheckBox</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOIsEntityPublic</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormCheckBoxControl">
+						<Name>HSO_HSOIsReadOnly</Name>
+						<Type>CheckBox</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOIsReadOnly</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSOPrimaryCompanyContext</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOPrimaryCompanyContext</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormCheckBoxControl">
+						<Name>HSO_HSOIsDataManagementEnabled</Name>
+						<Type>CheckBox</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOIsDataManagementEnabled</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormCheckBoxControl">
+						<Name>HSO_HSOTableTimeStateEnabled</Name>
+						<Type>CheckBox</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOTableTimeStateEnabled</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormCheckBoxControl">
+						<Name>HSO_HSOEntityTimeStateEnabled</Name>
+						<Type>CheckBox</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOEntityTimeStateEnabled</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSOPublicCollectionName</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOPublicCollectionName</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSOKeys</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOKeys</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormIntegerControl">
+						<Name>HSO_DataSourceTableCount</Name>
+						<Type>Integer</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>DataSourceTableCount</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormCheckBoxControl">
+						<Name>HSO_HasExtensionDataSources</Name>
+						<Type>CheckBox</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HasExtensionDataSources</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSOPublicEntityName</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOPublicEntityName</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSODataSourcesList</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSODataSourcesList</DataField>
+						<DataSource>DMFEntity</DataSource>
+					</AxFormControl>
+				</Controls>
+				<DataGroup>HSO</DataGroup>
+				<DataSource>DMFEntity</DataSource>
+			</FormControl>
+			<Parent>EntityGrid</Parent>
+			<PositionType>AfterItem</PositionType>
+			<PreviousSibling>DMFEntity_Type</PreviousSibling>
+		</AxFormExtensionControl>
+		<AxFormExtensionControl xmlns="">
+			<Name>FormExtensionControlwelham2a1</Name>
+			<FormControl xmlns=""
+				i:type="AxFormCheckBoxControl">
+				<Name>HSOShowExtendedGrid</Name>
+				<AutoDeclaration>Yes</AutoDeclaration>
+				<Type>CheckBox</Type>
+				<FormControlExtension
+					i:nil="true" />
+				<Label>Show extended grid</Label>
+				<Style>Toggle</Style>
+			</FormControl>
+			<Parent>CustomFilterGroup</Parent>
+		</AxFormExtensionControl>
+		<AxFormExtensionControl xmlns="">
+			<Name>FormExtensionControlqpchzbpt1</Name>
+			<FormControl xmlns=""
+				i:type="AxFormButtonGroupControl">
+				<Name>HSOODataEndpoint</Name>
+				<Type>ButtonGroup</Type>
+				<FormControlExtension
+					i:nil="true" />
+				<Controls>
+					<AxFormControl xmlns=""
+						i:type="AxFormButtonControl">
+						<Name>HSOShowData</Name>
+						<Type>Button</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<Text>Data</Text>
+					</AxFormControl>
+				</Controls>
+				<DataSource>DMFEntity</DataSource>
+			</FormControl>
+			<Parent>ActionPane</Parent>
+			<PositionType>AfterItem</PositionType>
+			<PreviousSibling>PublishFromEnitiyStore</PreviousSibling>
+		</AxFormExtensionControl>
+	</Controls>
+	<DataSourceModifications />
+	<DataSourceReferences />
+	<DataSources />
+	<Parts />
+	<PropertyModifications />
+</AxFormExtension>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AxFormExtension xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="Microsoft.Dynamics.AX.Metadata.V6">
+	<Name>DMFTargetXML.HSODataManagementExtension</Name>
+	<ControlModifications>
+		<AxExtensionModification xmlns="">
+			<Name>Grid</Name>
+			<PropertyModifications>
+				<AxPropertyModification>
+					<Name>DataGroup</Name>
+				</AxPropertyModification>
+			</PropertyModifications>
+		</AxExtensionModification>
+	</ControlModifications>
+	<Controls>
+		<AxFormExtensionControl xmlns="">
+			<Name>FormExtensionControl2olaxik01</Name>
+			<FormControl xmlns=""
+				i:type="AxFormGroupControl">
+				<Name>HSO</Name>
+				<Type>Group</Type>
+				<FormControlExtension
+					i:nil="true" />
+				<Controls>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSOLabel</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOLabel</DataField>
+						<DataSource>DMFTargetXML</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSOLogicalName</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOLogicalName</DataField>
+						<DataSource>DMFTargetXML</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSODataType</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSODataType</DataField>
+						<DataSource>DMFTargetXML</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSODataSourceName</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSODataSourceName</DataField>
+						<DataSource>DMFTargetXML</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSODataContraints</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSODataContraints</DataField>
+						<DataSource>DMFTargetXML</DataSource>
+					</AxFormControl>
+					<AxFormControl xmlns=""
+						i:type="AxFormStringControl">
+						<Name>HSO_HSOIsMandatory</Name>
+						<Type>String</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<DataField>HSOIsMandatory</DataField>
+						<DataSource>DMFTargetXML</DataSource>
+					</AxFormControl>
+				</Controls>
+				<DataGroup>HSO</DataGroup>
+				<DataSource>DMFTargetXML</DataSource>
+			</FormControl>
+			<Parent>Grid</Parent>
+		</AxFormExtensionControl>
+		<AxFormExtensionControl xmlns="">
+			<Name>FormExtensionControlbdqrvmmo1</Name>
+			<FormControl xmlns=""
+				i:type="AxFormButtonGroupControl">
+				<Name>HSOShowData</Name>
+				<Type>ButtonGroup</Type>
+				<FormControlExtension
+					i:nil="true" />
+				<Controls>
+					<AxFormControl xmlns=""
+						i:type="AxFormButtonControl">
+						<Name>HSOTableBrowser</Name>
+						<Type>Button</Type>
+						<FormControlExtension
+							i:nil="true" />
+						<Text>Table browser</Text>
+					</AxFormControl>
+				</Controls>
+				<DataSource>DMFTargetXML</DataSource>
+			</FormControl>
+			<Parent>ActionPane</Parent>
+		</AxFormExtensionControl>
+	</Controls>
+	<DataSourceModifications />
+	<DataSourceReferences />
+	<DataSources />
+	<Parts />
+	<PropertyModifications />
+</AxFormExtension>
